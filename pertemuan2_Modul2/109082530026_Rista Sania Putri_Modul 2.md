@@ -439,10 +439,13 @@ int main() {
 ### Output Unguided 1 :
 
 ##### Output 1
-![Screenshot Output Unguided 1_1](https://github.com/(username github kalian)/(nama repository github kalian)/blob/main/Pertemuan2_Modul2/Output-Unguided1-1.png)
+![Screenshot Output Unguided 1_1](https://github.com/Sania220107/109082530026_Rista-Sania-Putri_StrukturData/blob/main/pertemuan2_Modul2/output_1.1.jpeg?raw=true)
 
 ##### Output 2
-![Screenshot Output Unguided 1_2](https://github.com/(username github kalian)/(nama repository github kalian)/blob/main/Pertemuan2_Modul2/Output-Unguided1-2.png)
+![Screenshot Output Unguided 1_2](https://github.com/Sania220107/109082530026_Rista-Sania-Putri_StrukturData/blob/main/pertemuan2_Modul2/output_1.2.jpeg?raw=true)
+
+##### Output 3
+![Screenshot Output Unguided 1_3](https://github.com/Sania220107/109082530026_Rista-Sania-Putri_StrukturData/blob/main/pertemuan2_Modul2/output_1.3.jpeg)
 
 Program meminta pengguna mengisi dua matriks 3x3 (A dan B) menggunakan array dua dimensi, lalu menyediakan menu operasi. Setiap operasi dipisahkan ke dalam prosedur/fungsi tersendiri: `inputMatriks` untuk input, `tampilMatriks` untuk menampilkan, `tambah` dan `kurang` untuk operasi elemen per elemen (`a[i][j] ± b[i][j]`), serta `kali` untuk perkalian matriks dengan tiga perulangan bersarang (`hasil[i][j] += a[i][k] * b[k][j]`). Menu diulang dengan `do-while` hingga pengguna memilih 0 untuk keluar.
 
@@ -513,7 +516,7 @@ int main() {
 ### Output Unguided 2 :
 
 ##### Output 1
-![Screenshot Output Unguided 2_1]()
+![Screenshot Output Unguided 2](https://github.com/Sania220107/109082530026_Rista-Sania-Putri_StrukturData/blob/main/pertemuan2_Modul2/output_2.jpeg?raw=true)
 
 penjelasan unguided 2
 
@@ -610,10 +613,10 @@ void tampilArray(int arr[], int n) {
 ### Output Unguided 3 :
 
 ##### Output 1
-![Screenshot Output Unguided 3_1](https://github.com/(username github kalian)/(nama repository github kalian)/blob/main/Pertemuan2_Modul2/Output-Unguided3-1.png)
+![Screenshot Output Unguided 3_1](https://github.com/Sania220107/109082530026_Rista-Sania-Putri_StrukturData/blob/main/pertemuan2_Modul2/output_3.1.jpeg?raw=true)
 
 ##### Output 2
-![Screenshot Output Unguided 3_2](https://github.com/(username github kalian)/(nama repository github kalian)/blob/main/Pertemuan2_Modul2/Output-Unguided3-2.png)
+![Screenshot Output Unguided 3_2](https://github.com/Sania220107/109082530026_Rista-Sania-Putri_StrukturData/blob/main/pertemuan2_Modul2/output_3.2.jpeg?raw=true)
 
 penjelasan unguided 3
 
