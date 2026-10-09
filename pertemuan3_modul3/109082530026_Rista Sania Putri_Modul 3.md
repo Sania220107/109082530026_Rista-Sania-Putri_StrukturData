@@ -7,6 +7,7 @@ Abstract Data Type (ADT) adalah sebuah TYPE beserta sekumpulan PRIMITIF (operasi
 
 ### A. Abstract Data Type (ADT)<br/>
 ADT memisahkan definisi tipe data dari realisasi operasinya, sehingga program menjadi lebih terstruktur, mudah dipahami, dan mudah dikelola [1].
+
 #### 1. Primitif pada ADT
 Primitif dikelompokkan menjadi beberapa jenis, yaitu konstruktor/kreator (pembentuk nilai type, biasanya diawali `Make` atau `create`), selector (mengakses komponen, biasanya diawali `Get`), prosedur pengubah nilai komponen, validator komponen, destruktor/dealokator, baca/tulis (interface input/output), operator relasional, aritmatika, dan konversi tipe [1].
 
@@ -27,6 +28,7 @@ Array 2D adalah array yang elemennya diakses dengan dua indeks, yaitu baris dan 
 
 #### 2. Pointer
 Pointer adalah variabel yang menyimpan alamat memori dari variabel lain. Operator `&` digunakan untuk mengambil alamat suatu variabel, dan operator `*` digunakan untuk mengakses nilai yang ditunjuk oleh pointer.
+
 #### 3. Menukar Nilai Lewat Pointer
 Dengan mengirim pointer ke sebuah fungsi, fungsi dapat menukar nilai dari dua variabel yang ditunjuk oleh pointer tersebut dengan bantuan variabel sementara (`temp`).
 
@@ -101,7 +103,7 @@ File `main.cpp` adalah driver yang membuat variabel bertipe `mahasiswa`, memangg
 
 struct mahasiswa {
     char nama[50];
-    char nim[10];
+    char nim[13];
     float uts, uas, tugas;
     float nilaiAkhir;
 };
@@ -121,15 +123,15 @@ void tampilMhs(mahasiswa m);
 using namespace std;
 
 void inputMhs(mahasiswa &m) {
-    cout << "input nama   = ";
+    cout << "Nama   = ";
     cin >> m.nama;
-    cout << "input nim    = ";
+    cout << "NIM    = ";
     cin >> m.nim;
-    cout << "input uts    = ";
+    cout << "uts    = ";
     cin >> m.uts;
-    cout << "input uas    = ";
+    cout << "uas    = ";
     cin >> m.uas;
-    cout << "input tugas  = ";
+    cout << "tugas  = ";
     cin >> m.tugas;
     m.nilaiAkhir = hitungNilaiAkhir(m);
 }
@@ -181,18 +183,11 @@ int main() {
 ### Output Unguided 1 :
 
 ##### Output 1
-![Screenshot Output Unguided 1_1](https://github.com/(username github kalian)/(nama repository github kalian)/blob/main/(path folder menyimpan screenshot output)/(nama file screenshot output).png)
+![Screenshot Output Unguided 1_1](https://github.com/Sania220107/109082530026_Rista-Sania-Putri_StrukturData/blob/main/pertemuan3_modul3/output_1.1.jpeg?raw=true)
 
-Contoh hasil (satu mahasiswa dengan UTS 80, UAS 90, tugas 100):
-```
---- Mahasiswa ke-1 ---
-Nama        : Budi
-NIM         : 123
-UTS         : 80
-UAS         : 90
-Tugas       : 100
-Nilai Akhir : 90
-```
+##### Output 2
+![Screenshot Output Unguided 1_2](https://github.com/Sania220107/109082530026_Rista-Sania-Putri_StrukturData/blob/main/pertemuan3_modul3/output_1.2.jpeg?raw=true)
+
 
 Pada program ini dibuat ADT `mahasiswa` dengan field nama, nim, uts, uas, tugas, dan nilaiAkhir. Data disimpan dalam array `dataMhs` berukuran maksimal 10. Jumlah data diinput oleh pengguna dan dibatasi 1 sampai 10 dengan `do-while`. Nilai akhir dihitung oleh fungsi `hitungNilaiAkhir` dengan rumus `0.3*uts + 0.4*uas + 0.3*tugas`, lalu disimpan ke field `nilaiAkhir` saat proses input.
 
@@ -257,39 +252,31 @@ int main() {
 ### Output Unguided 2 :
 
 ##### Output 1
-![Screenshot Output Unguided 2_1](https://github.com/(username github kalian)/(nama repository github kalian)/blob/main/(path folder menyimpan screenshot output)/(nama file screenshot output).png)
+![Screenshot Output Unguided 2](https://github.com/Sania220107/109082530026_Rista-Sania-Putri_StrukturData/blob/main/pertemuan3_modul3/output_2.jpeg?raw=true)
 
-Hasil yang ditampilkan:
-```
-nama pelajaran : Struktur Data
-nilai : STD
-```
 
 Pada program ini dibuat ADT `pelajaran` dengan field `namaMapel` dan `kodeMapel`. Fungsi `create_pelajaran` berperan sebagai konstruktor yang membentuk nilai bertipe `pelajaran` dari nama dan kode yang diberikan, sedangkan prosedur `tampil_pelajaran` menampilkan isinya. Hasil output sesuai dengan contoh pada modul.
 
 ### 3. Program dengan 2 array 2D integer 3x3 dan 2 pointer integer, beserta fungsi menampilkan array, menukar isi array pada posisi tertentu, dan menukar isi variabel yang ditunjuk 2 pointer
 
-**array_ptr.h**
+**arr_ptr.h**
 ```C++
 #ifndef ARRAY_PTR_H_INCLUDED
 #define ARRAY_PTR_H_INCLUDED
 
-// menampilkan isi sebuah array integer 2D 3x3
 void tampilArray(int arr[3][3]);
 
-// menukarkan isi array A dan B pada posisi (baris, kolom) tertentu
 void tukarArray(int A[3][3], int B[3][3], int baris, int kolom);
 
-// menukarkan isi variabel yang ditunjuk oleh 2 pointer
 void tukarPointer(int *p1, int *p2);
 
 #endif // ARRAY_PTR_H_INCLUDED
 ```
 
-**array_ptr.cpp**
+**arr_ptr.cpp**
 ```C++
 #include <iostream>
-#include "array_ptr.h"
+#include "arr_ptr.h"
 
 using namespace std;
 
@@ -318,7 +305,7 @@ void tukarPointer(int *p1, int *p2) {
 **main.cpp**
 ```C++
 #include <iostream>
-#include "array_ptr.h"
+#include "arr_ptr.h"
 
 using namespace std;
 
@@ -368,26 +355,14 @@ int main() {
 ### Output Unguided 3 :
 
 ##### Output 1
-![Screenshot Output Unguided 3_1](https://github.com/(username github kalian)/(nama repository github kalian)/blob/main/(path folder menyimpan screenshot output)/(nama file screenshot output).png)
+![Screenshot Output Unguided 3_1](https://github.com/Sania220107/109082530026_Rista-Sania-Putri_StrukturData/blob/main/pertemuan3_modul3/output_3.1.jpeg?raw=true)
 
-Contoh hasil dengan input posisi `0 1`:
-```
-=== Sesudah tukar array pada posisi [0][1] ===
-Array A:
-1	8	3	
-4	5	6	
-7	8	9	
-Array B:
-9	2	7	
-6	5	4	
-3	2	1	
+##### Output 2
+![Screenshot Output Unguided 3_2](https://github.com/Sania220107/109082530026_Rista-Sania-Putri_StrukturData/blob/main/pertemuan3_modul3/output_3.2.jpeg?raw=true)
 
-=== Tukar pointer ===
-Sebelum : x = 10, y = 20
-Sesudah : x = 20, y = 10
-```
 
-Program ini memiliki dua array 2D integer 3x3 (`A` dan `B`) dan dua pointer integer (`p1` dan `p2`) yang menunjuk ke variabel `x` dan `y`. Fungsi `tampilArray` menampilkan isi array, fungsi `tukarArray` menukar elemen `A` dan `B` pada posisi baris dan kolom yang diinput pengguna, dan fungsi `tukarPointer` menukar nilai variabel yang ditunjuk oleh dua pointer melalui dereferensi (`*p1` dan `*p2`). Seluruh fungsi dipisah dalam ADT `array_ptr` (file `.h` dan `.cpp`) agar sesuai dengan konsep ADT.
+
+Program ini memiliki dua array 2D integer 3x3 (`A` dan `B`) dan dua pointer integer (`p1` dan `p2`) yang menunjuk ke variabel `x` dan `y`. Fungsi `tampilArray` menampilkan isi array, fungsi `tukarArray` menukar elemen `A` dan `B` pada posisi baris dan kolom yang diinput pengguna, dan fungsi `tukarPointer` menukar nilai variabel yang ditunjuk oleh dua pointer melalui dereferensi (`*p1` dan `*p2`). Seluruh fungsi dipisah dalam ADT `arr_ptr` (file `.h` dan `.cpp`) agar sesuai dengan konsep ADT.
 
 ## Kesimpulan
 Dari praktikum ini dapat disimpulkan bahwa Abstract Data Type (ADT) memisahkan program menjadi file header (`.h`) yang berisi definisi type dan deklarasi primitif, file body (`.cpp`) yang berisi realisasi fungsi dan prosedur, serta file driver (`main.cpp`) yang menjalankan program. Pemisahan ini membuat kode lebih rapi, mudah dipahami, dan dapat digunakan kembali. Penerapan ADT pada data mahasiswa, pelajaran, serta array 2D dan pointer menunjukkan bahwa konsep yang sama dapat dipakai untuk berbagai jenis permasalahan.
