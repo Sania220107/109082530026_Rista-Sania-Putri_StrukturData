@@ -1,5 +1,5 @@
 #include "Singlylist.h"
-void createList(List &L) {
+void CreateList(List &L) {
     L.First = Nil;
 }
 

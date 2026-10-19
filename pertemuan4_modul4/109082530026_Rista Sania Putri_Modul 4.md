@@ -435,9 +435,9 @@ int main() {
 ### Output Unguided 1 :
 
 ##### Output 1
-![Screenshot Output Unguided 1](?raw=true)
+![Screenshot Output Unguided 1](https://github.com/Sania220107/109082530026_Rista-Sania-Putri_StrukturData/blob/main/pertemuan4_modul4/output_1.png?raw=true)
 
-Pada soal ini dibuat ADT singly linked list dengan tipe `infotype` berupa `int`, `address` sebagai pointer ke `ElmList`, dan `List` yang menyimpan pointer `First`. Procedure `createList` membuat list kosong, `alokasi` membuat node baru dengan `new`, `dealokasi` mengembalikan memori node, `printInfo` menampilkan isi list dari node pertama sampai terakhir, dan `insertFirst` menyisipkan node di awal list. Pada `main`, nilai 2, 0, 8, 12, dan 9 dialokasikan lalu dimasukkan satu per satu menggunakan `insertFirst`. Karena setiap node baru selalu ditempatkan di awal list, urutan list menjadi kebalikan dari urutan insert, yaitu `9 12 8 0 2`, sesuai output yang diharapkan.
+Pada soal ini dibuat ADT singly linked list dengan tipe `infotype` berupa `int`, `address` sebagai pointer ke `ElmList`, dan `List` yang menyimpan pointer `First`. Procedure `CreateList` membuat list kosong, `alokasi` membuat node baru dengan `new`, `dealokasi` mengembalikan memori node, `printInfo` menampilkan isi list dari node pertama sampai terakhir, dan `insertFirst` menyisipkan node di awal list. Pada `main`, nilai 2, 0, 8, 12, dan 9 dialokasikan lalu dimasukkan satu per satu menggunakan `insertFirst`. Karena setiap node baru selalu ditempatkan di awal list, urutan list menjadi kebalikan dari urutan insert, yaitu `9 12 8 0 2`, sesuai output yang diharapkan.
 
 ### 2. Dari soal latihan pertama, menghapus node 9 dengan `deleteFirst()`, node 2 dengan `deleteLast()`, dan node 8 dengan `deleteAfter()`, lalu menampilkan jumlah node dengan `nbList()` dan menghapus seluruh node dengan `deleteList()`
 
@@ -463,7 +463,7 @@ struct List {
     address First;
 };
 
-void createList(List &L);
+void CreateList(List &L);
 address alokasi(infotype x);
 void dealokasi(address &P);
 void printInfo(List L);
@@ -483,7 +483,7 @@ void deleteList(List &L);
 **Singlylist.cpp**
 ```C++
 #include "Singlylist.h"
-void createList(List &L) {
+void CreateList(List &L) {
     L.First = Nil;
 }
 
@@ -599,7 +599,7 @@ void deleteList(List &L) {
 int main() {
     List L;
     address P1, P2, P3, P4, P5 = Nil;
-    createList(L);
+    CreateList(L);
 
     P1 = alokasi(2);
     insertFirst(L, P1);
@@ -646,7 +646,7 @@ int main() {
 ### Output Unguided 2 :
 
 ##### Output 1
-![Screenshot Output Unguided 2](?raw=true)
+![Screenshot Output Unguided 2](https://github.com/Sania220107/109082530026_Rista-Sania-Putri_StrukturData/blob/main/pertemuan4_modul4/output_2.png?raw=true)
 
 Soal ini melanjutkan soal pertama dengan menambahkan procedure `deleteFirst`, `deleteLast`, `deleteAfter`, `nbList`, dan `deleteList`. List awal `9 12 8 0 2` dibuat terlebih dahulu seperti pada soal pertama. Selanjutnya `deleteFirst` melepas node pertama (9) sehingga list menjadi `12 8 0 2`, `deleteLast` melepas node terakhir (2) sehingga list menjadi `12 8 0`, dan `deleteAfter` dengan `P4` (node 12) sebagai node sebelumnya melepas node 8 sehingga list menjadi `12 0`. Setiap node yang dilepas langsung dikembalikan memorinya dengan `dealokasi`. `printInfo` kemudian menampilkan `12 0` dan `nbList` menghitung jumlah node sebanyak 2. Terakhir `deleteList` menghapus seluruh node sehingga jumlah node menjadi 0, sesuai output yang diharapkan.
 

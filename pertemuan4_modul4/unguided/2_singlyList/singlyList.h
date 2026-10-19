@@ -18,7 +18,7 @@ struct List {
     address First;
 };
 
-void createList(List &L);
+void CreateList(List &L);
 address alokasi(infotype x);
 void dealokasi(address &P);
 void printInfo(List L);
