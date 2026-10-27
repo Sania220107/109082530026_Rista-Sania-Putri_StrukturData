@@ -464,7 +464,7 @@ Di main, list buah dibuat lalu diisi lima node (Jeruk, Apel, Pir, Semangka, Duri
 
 ### 2. Buatlah ADT Singly Linked List di dalam file "Singlylist.h", implementasinya pada "Singlylist.cpp", lalu cobalah pada "main.cpp" (isi list: 9, 12, 8, 0, 2)
 
-### 1. SinglyList.h
+#### File Singlylist.h
 ```C++
 #ifndef SINGLYLIST_H
 #define SINGLYLIST_H
@@ -500,7 +500,7 @@ int sumInfo(List L);
 
 #endif
 ```
-### 2. SinglyList.cpp
+#### File Singlylist.cpp
 ```C++
 #include "Singlylist.h"
 #include <iostream>
@@ -567,7 +567,7 @@ int sumInfo(List L) {
     return total;
 }
 ```
-### 3. File main.cpp
+#### File main.cpp
 ```C++
 #include "Singlylist.h"
 
