@@ -4,31 +4,32 @@
 ## Dasar Teori
 
 ### A. Singly Linked List<br/>
-Linked list atau yang disebut juga senarai berantai adalah salah satu bentuk struktur data yang berisi kumpulan data yang tersusun secara sekuensial, saling bersambungan, dinamis, dan terbatas[1]. Linked list terdiri dari sejumlah node atau simpul yang dihubungkan secara linier dengan bantuan pointer. Pada singly linked list, setiap node hanya memiliki satu pointer, yaitu next yang menunjuk ke node berikutnya, sedangkan node terakhir menunjuk ke Nil (NULL) sebagai penanda akhir list. Linked list memiliki alokasi memori yang dinamis sehingga unggul pada kasus yang sering melibatkan perubahan data, seperti menambah, menghapus, mencari, dan menampilkan data[2][3].
+Linked list atau yang disebut juga senarai berantai adalah salah satu bentuk struktur data yang berisi kumpulan data yang tersusun secara sekuensial, saling bersambungan, dinamis, dan terbatas[1]. Linked list terdiri dari sejumlah node atau simpul yang dihubungkan secara linier dengan bantuan pointer. Di singly linked list, tiap node cuma punya satu pointer yaitu next yang menunjuk ke node setelahnya, dan node paling akhir menunjuk ke Nil (NULL) sebagai tanda list sudah habis. Memori linked list dialokasikan secara dinamis, jadi cocok dipakai untuk data yang sering berubah, misalnya sering ditambah, dihapus, dicari, atau ditampilkan[2][3].
 #### 1. Struktur Node dan List
-Sebuah node terdiri dari bagian data (info) dan pointer next. List sendiri hanya menyimpan pointer first yang menunjuk ke node pertama. List dinyatakan kosong jika first bernilai Nil.
+Satu node isinya ada dua: data (info) dan pointer next. Sedangkan list sendiri cuma menyimpan pointer first yang menunjuk ke node pertama. Kalau nilai first adalah Nil, berarti list masih kosong.
 #### 2. Operasi Dasar
-Operasi dasar pada linked list meliputi membuat list kosong (createList), menambah node (insert first, insert after, insert last), menghapus node (delete first, delete after, delete last), dan menampilkan isi list (printList / printInfo).
+Operasi dasarnya ada membuat list kosong (createList), menambah node (insert first, insert after, insert last), menghapus node (delete first, delete after, delete last), dan menampilkan isi list (printList / printInfo).
 #### 3. Manajemen Memori
-Node dibuat secara dinamis dengan operator new pada fungsi alokasi dan dikembalikan ke sistem dengan operator delete pada prosedur dealokasi, sehingga memori tidak terbuang percuma.
+Node dibuat dengan new di fungsi alokasi, lalu kalau sudah tidak dipakai dihapus dengan delete di prosedur dealokasi supaya memorinya dikembalikan.
 
 ### B. Update<br/>
-Update adalah operasi mengubah data pada node yang sudah ada di dalam list. Prosesnya dilakukan dengan menunjuk node yang dituju lalu mengganti isi datanya, tanpa mengubah susunan pointer.
+Update artinya mengubah data di node yang sudah ada di dalam list. Caranya, cari dulu node yang mau diubah, lalu isi datanya diganti. Susunan pointer-nya tidak berubah.
 #### 1. Update First
-Mengubah data pada node pertama, yang langsung diakses lewat List.first.
+Mengubah data di node pertama. Node ini bisa langsung diakses lewat List.first.
 #### 2. Update Last
-Mengubah data pada node terakhir. Node ini dicari dengan menelusuri list sampai next bernilai Nil.
+Mengubah data di node terakhir. Untuk sampai ke sana, list ditelusuri dulu sampai next bernilai Nil.
 #### 3. Update After
-Mengubah data pada node yang berada setelah node tertentu (Prev->next).
+Mengubah data di node yang letaknya tepat setelah node tertentu (Prev->next).
 
 ### C. Searching<br/>
-Searching merupakan operasi dasar list dengan melakukan aktivitas pencarian terhadap node tertentu. Proses ini berjalan dengan mengunjungi setiap node dan berhenti setelah node yang dicari ketemu. Dengan melakukan operasi searching, operasi-operasi seperti insert after, delete after, dan update akan lebih mudah[4]. Karena akses pada linked list bersifat sekuensial, pencarian dilakukan dengan menelusuri node satu per satu dengan kompleksitas O(n)[3].
+Searching adalah operasi mencari node tertentu di dalam list. Prosesnya mengunjungi node satu per satu dan berhenti begitu node yang dicari ketemu. Dengan adanya searching, operasi seperti insert after, delete after, dan update jadi lebih gampang dikerjakan[4]. Karena aksesnya berurutan, pencarian dilakukan dengan memeriksa node satu per satu dari awal, dengan kompleksitas O(n)[3].
+
 #### 1. Searching Berdasarkan Data
-Menelusuri list dari node pertama dan membandingkan data setiap node dengan data yang dicari, misalnya findElm atau FindNodeByData.
+List ditelusuri dari node pertama, lalu data tiap node dibandingkan dengan data yang dicari. Contohnya findElm dan FindNodeByData.
 #### 2. Searching Berdasarkan Alamat
 Membandingkan alamat setiap node dengan alamat yang dicari (FindNodeByAddress).
 #### 3. Searching Berdasarkan Range
-Menampilkan semua node yang datanya berada dalam rentang nilai tertentu, misalnya rentang harga (FindNodeByRange).
+Menampilkan semua node yang datanya masuk dalam rentang tertentu, misalnya rentang harga (FindNodeByRange).
 
 ## Guided 
 
@@ -91,7 +92,7 @@ void FindNodeByRange(linkedlist list, float hargaAwal, float HargaAkhir);
 
 #endif
 ```
-penjelasan singkat guided 1
+File ini isinya deklarasi saja. Ada struct buah untuk data (nama, jumlah, harga), struct node yang menyimpan data dan pointer next, struct linkedlist yang punya pointer first, dan daftar prototype semua fungsi dan prosedur. Di Modul 5 ditambah prototype untuk update (updateFirst, updateLast, updateAfter) dan searching (FindNodeByData, FindNodeByAddress, FindNodeByRange). #ifndef di bagian atas gunanya supaya file ini tidak ke-include dua kali.
 
 ### 2. File listBuah.cpp
 
@@ -386,7 +387,7 @@ void FindNodeByRange(linkedlist list, float hargaAwal, float hargaAkhir) {
     cout << endl;
 }
 ```
-penjelasan singkat guided 2
+File ini isi dari semua fungsi dan prosedur yang sudah dideklarasikan di header. Insert, delete, dan print masih materi Modul 4. Yang baru di Modul 5 adalah update dan searching. Prosedur update minta input data baru dari pengguna, lalu data di node yang dituju (pertama, terakhir, atau setelah node tertentu) diganti. Prosedur searching menelusuri list pakai node bantu sambil menghitung posisinya, lalu menampilkan node yang ketemu, atau pesan "tidak ditemukan" kalau tidak ada yang cocok.
 
 ### 3. File main.cpp
 
@@ -457,7 +458,7 @@ int main(){
     return 0;
 }
 ```
-Program utama membuat list buah, mengisi lima node (Jeruk, Apel, Pir, Semangka, Durian) dengan operasi insert, lalu menjalankan update, searching (berdasarkan data, alamat, dan range harga), delete, dan terakhir menghapus seluruh list. Setiap tahap menampilkan isi list dan jumlah node.
+Di main, list buah dibuat lalu diisi lima node (Jeruk, Apel, Pir, Semangka, Durian) lewat operasi insert. Setelah itu dicoba update, searching (berdasarkan data, alamat, dan range harga), delete, dan terakhir hapus seluruh list. Tiap tahap menampilkan isi list dan jumlah node-nya.
 
 ## Unguided 
 
@@ -617,11 +618,11 @@ int main() {
 ### Output Unguided 2 :
 
 ##### Output 1
-![Screenshot Output Unguided 2_1](https://github.com/(username github kalian)/(nama repository github kalian)/blob/main/(path folder menyimpan screenshot output)/(nama file screenshot output).png)
+![Screenshot Output Unguided 2_1](https://github.com/Sania220107/109082530026_Rista-Sania-Putri_StrukturData/blob/main/pertemuan5_modul5/Output%202_1.png?raw=true)
 
 
 
-Pada soal ini dibuat ADT singly linked list dengan tipe infotype berupa int. Fungsi alokasi membuat node baru dengan new, lalu insertFirst menyisipkan node di awal list. Karena setiap node disisipkan di awal, node yang dimasukkan terakhir (9) menjadi node pertama, sehingga printInfo menampilkan urutan 9 12 8 0 2. Program lengkap ini juga sudah memuat fungsi findElm dan sumInfo yang dijelaskan pada nomor berikutnya.
+Di soal ini dibuat ADT singly linked list dengan infotype berupa int. Fungsi alokasi membuat node baru pakai new, lalu insertFirst menaruh node itu di awal list. Karena setiap node ditaruh di depan, angka yang dimasukkan terakhir (9) jadi node pertama. Makanya printInfo menampilkan 9 12 8 0 2, urutannya terbalik dari urutan input (2, 0, 8, 12, 9). Kode ini juga sudah berisi findElm dan sumInfo yang dijelaskan di nomor berikutnya.
 
 ### 3. Carilah elemen dengan info 8 dengan membuat fungsi baru findElm(L : List, x : infotype) : address
 
@@ -641,11 +642,11 @@ address findElm(List L, infotype x) {
 ### Output Unguided 3 :
 
 ##### Output 1
-![Screenshot Output Unguided 3_1](https://github.com/(username github kalian)/(nama repository github kalian)/blob/main/(path folder menyimpan screenshot output)/(nama file screenshot output).png)
+![Screenshot Output Unguided 3_1](https://github.com/Sania220107/109082530026_Rista-Sania-Putri_StrukturData/blob/main/pertemuan5_modul5/Output%203_1.png?raw=true)
 
 
 
-Fungsi findElm menelusuri list mulai dari L.first dengan pointer bantu P. Jika P->info sama dengan x, fungsi mengembalikan alamat node tersebut. Jika sampai akhir list tidak ada yang cocok, fungsi mengembalikan Nil. Pada main, hasilnya dicek: jika bukan Nil maka ditampilkan "8 ditemukan dalam list".
+findElm jalan dari L.first pakai pointer bantu P. Di setiap node, P->info dicek apakah sama dengan x. Kalau sama, alamat node itu langsung dikembalikan. Kalau sampai ujung list tidak ada yang cocok, yang dikembalikan Nil. Di main, hasilnya dicek: kalau bukan Nil, tampil "8 ditemukan dalam list".
 
 ### 4. Hitunglah jumlah total info seluruh elemen (9+12+8+0+2=31)
 
@@ -663,16 +664,17 @@ int sumInfo(List L) {
 ### Output Unguided 4 :
 
 ##### Output 1
-![Screenshot Output Unguided 4_1](https://github.com/(username github kalian)/(nama repository github kalian)/blob/main/(path folder menyimpan screenshot output)/(nama file screenshot output).png)
+![Screenshot Output Unguided 4_1](https://github.com/Sania220107/109082530026_Rista-Sania-Putri_StrukturData/blob/main/pertemuan5_modul5/Output%204_1.png?raw=true)
 
 
 
-Fungsi sumInfo menelusuri seluruh node dari L.first sampai Nil, dan pada setiap node menambahkan P->info ke variabel total. Hasilnya dikembalikan sebagai nilai fungsi, yaitu 9 + 12 + 8 + 0 + 2 = 31.
+sumInfo menelusuri semua node dari L.first sampai Nil. Di tiap node, P->info ditambahkan ke variabel total. Setelah selesai, total dikembalikan sebagai hasil fungsi, yaitu 9 + 12 + 8 + 0 + 2 = 31.
 
 ## Kesimpulan
-Pada praktikum ini dipelajari operasi lanjutan pada singly linked list, yaitu update dan searching. Operasi update mengubah isi node tanpa mengubah susunan pointer, sedangkan searching dilakukan dengan menelusuri node satu per satu menggunakan pointer bantu sampai data yang dicari ditemukan atau list habis. Pada latihan, ADT singly linked list berhasil dibuat dengan pemisahan file header, implementasi, dan program utama, lalu ditambah fungsi findElm untuk mencari elemen dan sumInfo untuk menghitung total info seluruh elemen.
+Di praktikum ini saya belajar dua operasi lanjutan di singly linked list, yaitu update dan searching. Update cuma mengganti isi node, pointer-nya tidak diubah. Searching dilakukan dengan memeriksa node satu per satu pakai pointer bantu sampai data yang dicari ketemu atau list habis. Di latihan, ADT singly linked list dibuat dalam tiga file (header, implementasi, dan main), lalu ditambah fungsi findElm untuk mencari elemen dan sumInfo untuk menghitung total info semua elemen.
 
 ## Referensi
 [1] Triase. (2020). Diktat Edisi Revisi : STRUKTUR DATA. Medan: UNIVERSTAS ISLAM NEGERI SUMATERA UTARA MEDAN. 
-<br>[2] Mbejo, M. T., Nopa, L. A., Putri, J. S., & Risky, M. (2025). Analisis Struktur Data Linked List Dalam Pengolahan Data Mahasiswa. Jurnal Sains Informatika Terapan (JSIT), 4(2), 441-444. https://doi.org/10.62357/jsit.v4i2.591 <br>[3] Lukman SD, A., Arya S, G., Putra I, M., & Devega, A. T. (2025). Analisis Komparatif Struktur Data Array Dan Linked List; Evaluasi Performa Dan Implementasi Optimal. Jurnal Sains Informatika Terapan (JSIT), 4(3), 854-858. https://doi.org/10.62357/jsit.v4i3.631 
+<br>[2] Mbejo, M. T., Nopa, L. A., Putri, J. S., & Risky, M. (2025). Analisis Struktur Data Linked List Dalam Pengolahan Data Mahasiswa. Jurnal Sains Informatika Terapan (JSIT), 4(2), 441-444. https://doi.org/10.62357/jsit.v4i2.591 
+<br>[3] Lukman SD, A., Arya S, G., Putra I, M., & Devega, A. T. (2025). Analisis Komparatif Struktur Data Array Dan Linked List; Evaluasi Performa Dan Implementasi Optimal. Jurnal Sains Informatika Terapan (JSIT), 4(3), 854-858. https://doi.org/10.62357/jsit.v4i3.631 
 <br>[4] Modul 5 Struktur Data: Singly Linked List (Bagian Kedua). Praktikum Struktur Data, Informatics Lab, Telkom University.
