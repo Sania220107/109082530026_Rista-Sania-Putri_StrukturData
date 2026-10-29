@@ -2,24 +2,25 @@
 <p align="center">Rista Sania Putri - 109082530026</p>
 
 ## Dasar Teori
-Linked list atau yang disebut juga senarai berantai adalah salah satu bentuk struktur data yang berisi kumpulan data yang tersusun secara sekuensial, saling bersambungan, dinamis, dan terbatas[1]. Linked list terdiri dari sejumlah node atau simpul yang dihubungkan secara linier dengan bantuan pointer. Pada praktikum ini dibahas pengembangan dari linked list, yaitu doubly linked list.
+Linked list atau yang disebut juga senarai berantai adalah salah satu bentuk struktur data linier yang terdiri dari sejumlah node atau simpul yang saling terhubung dengan bantuan pointer[1]. Pada praktikum ini dibahas pengembangan dari linked list, yaitu doubly linked list.
 
 ### A. Doubly Linked List<br/>
-Doubly linked list adalah linked list yang setiap elemennya memiliki dua successor, yaitu pointer yang menunjuk ke elemen sebelumnya (prev) dan pointer yang menunjuk ke elemen sesudahnya (next)[3]. Dengan dua pointer tersebut, penelusuran data dapat dilakukan maju (dari first ke last) maupun mundur (dari last ke first), sehingga akses elemen menjadi lebih mudah dibandingkan singly linked list[3].
+Doubly linked list adalah linked list yang setiap elemennya memiliki dua successor, yaitu pointer yang menunjuk ke elemen sebelumnya (prev) dan pointer yang menunjuk ke elemen sesudahnya (next)[1][3]. Dengan dua pointer tersebut, penelusuran data dapat dilakukan maju (dari first ke last) maupun mundur (dari last ke first), sehingga akses elemen menjadi lebih mudah dibandingkan singly linked list[3].
 #### 1. Komponen
 Komponen dalam doubly linked list adalah[3]:
 
 <ol>
-<li>pointer pada list yang menunjuk elemen pertama.</li>
-<li>pointer pada list yang menunjuk elemen terakhir.</li>
-<li>pointer pada elemen yang menunjuk elemen di depannya.</li>
-<li>pointer pada elemen yang menunjuk elemen di belakangnya.</li>
+<li><b>First</b>: pointer pada list yang menunjuk elemen pertama.</li>
+<li><b>Last</b>: pointer pada list yang menunjuk elemen terakhir.</li>
+<li><b>Next</b>: pointer pada elemen yang menunjuk elemen di depannya.</li>
+<li><b>Prev</b>: pointer pada elemen yang menunjuk elemen di belakangnya.</li>
 </ol>
 
 List dikatakan kosong jika L.first = Nil.
 #### 2. Struktur Data
 Struktur data doubly linked list terdiri dari record elemen (info, prev, next) dan record list (first, last)[3].
 
+```C++
 struct elmlist {
     infotype info;
     address prev;
@@ -29,8 +30,11 @@ struct elmlist {
 struct list {
     address first, last;
 };
+
+```
+
 #### 3. Alokasi dan Dealokasi
-Alokasi membuat elemen baru di memori dengan new lalu mengisi info, serta mengatur next dan prev menjadi Nil. Dealokasi membebaskan memori elemen dengan delete[2].
+Alokasi membuat elemen baru di memori dengan operator new lalu mengisi info, serta mengatur next dan prev menjadi Nil. Dealokasi membebaskan memori elemen tersebut dengan operator delete[2].
 
 ### B. Operasi pada Doubly Linked List<br/>
 Operasi dasar pada doubly linked list terdiri dari insert dan delete yang dapat dilakukan di awal, di akhir, maupun di tengah list[3].
@@ -47,7 +51,6 @@ Operasi dasar pada doubly linked list terdiri dari insert dan delete yang dapat 
 <li>Delete First: elemen pertama diambil, L.first dipindah ke elemen berikutnya, lalu prev elemen pertama yang baru diisi Nil.</li>
 <li>Delete Last: elemen terakhir diambil, L.last dipindah ke elemen sebelumnya, lalu next elemen terakhir yang baru diisi Nil.</li>
 <li>Delete After / Delete Before: menghapus elemen tepat setelah atau sebelum elemen acuan dengan menyambungkan kembali pointer next dan prev elemen di sekitarnya[3].</li>
-
 </ul>
 
 #### 3. Update, View, dan Searching
@@ -335,7 +338,7 @@ int main() {
     return 0;
 }
 ```
-Program ini mencoba semua operasi dasar doubly linked list dengan data barang (kode, nama, tahun). Datanya ditambah pakai insertFirst, insertLast, insertAfter, dan insertBefore, dicari pakai findElm, lalu dihapus pakai deleteAfter, deleteBefore, deleteFirst, dan deleteLast sampai list kosong. Setiap selesai satu operasi, isi list ditampilkan pakai printInfo supaya perubahannya kelihatan.
+Program ini mencoba semua operasi dasar doubly linked list dengan data barang (kode, nama, tahun). Data ditambah pakai insertFirst, insertLast, insertAfter, dan insertBefore, dicari pakai findElm, lalu dihapus pakai deleteAfter, deleteBefore, deleteFirst, dan deleteLast sampai list kosong. Setiap selesai satu operasi, isi list ditampilkan pakai printInfo supaya perubahannya kelihatan.
 
 ## Unguided 
 
@@ -377,13 +380,8 @@ void dealokasi(address &P);
 void printInfo(List L);
 void insertLast(List &L, address P);
 
-// Soal 2
 address findElm(List L, infotype x);
 
-// Soal 3
-void deleteFirst(List &L, address &P);
-void deleteLast(List &L, address &P);
-void deleteAfter(List &L, address Prec, address &P);
 
 #endif
 ```
@@ -473,10 +471,10 @@ int main() {
 ### Output Unguided 1 :
 
 ##### Output 1
-![Screenshot Output Unguided 1_1](https://github.com/(username github kalian)/(nama repository github kalian)/blob/main/(path folder menyimpan screenshot output)/(nama file screenshot output).png)
+![Screenshot Output Unguided 1_1](https://github.com/Sania220107/109082530026_Rista-Sania-Putri_StrukturData/blob/main/pertemuan6_modul6/Output%201_1.png?raw=true)
 
 
-Program ini membuat doubly linked list untuk data kendaraan yang isinya nomor polisi, warna, dan tahun buat. Data ditambahkan lewat insertLast, jadi selalu masuk di belakang list. Sebelum data dimasukkan, program mengecek dulu pakai findElm. Kalau nomor polisinya sudah ada, data ditolak dan muncul tulisan “nomor polisi sudah terdaftar”. printInfo menampilkan data dari belakang ke depan lewat pointer prev, makanya urutan tampilannya terbalik dari urutan input.
+Program ini membuat doubly linked list untuk data kendaraan yang isinya nomor polisi, warna, dan tahun buat. Data dimasukkan lewat insertLast, jadi selalu masuk di belakang list. Sebelum dimasukkan, program mengecek dulu pakai findElm. Kalau nomor polisinya sudah ada, data ditolak dan muncul tulisan “nomor polisi sudah terdaftar”. printInfo menampilkan data dari belakang ke depan lewat pointer prev, makanya urutan tampilannya terbalik dari urutan input.
 
 ### 2. Carilah elemen dengan nomor polisi D001 dengan membuat fungsi baru findElm(L : List, x : infotype) : address.
 
@@ -618,12 +616,10 @@ int main() {
 ### Output Unguided 2 :
 
 ##### Output 1
-![Screenshot Output Unguided 2_1](https://github.com/(username github kalian)/(nama repository github kalian)/blob/main/(path folder menyimpan screenshot output)/(nama file screenshot output).png)
+![Screenshot Output Unguided 2_1](https://github.com/Sania220107/109082530026_Rista-Sania-Putri_StrukturData/blob/main/pertemuan6_modul6/Output%202_1.png?raw=true)
 
 
-
-
-Di soal ini ditambah fungsi findElm untuk mencari data berdasarkan nomor polisi. Fungsi ini jalan dari elemen pertama sambil membandingkan nomor polisi tiap elemen. Kalau ketemu, yang dikembalikan adalah alamat elemennya, kalau tidak ketemu hasilnya Nil. Setelah itu program menampilkan nomor polisi, warna, dan tahun dari data yang dicari, yaitu D001.
+Di soal ini findElm dipakai untuk mencari data berdasarkan nomor polisi. Fungsinya jalan dari elemen pertama sambil membandingkan nomor polisi tiap elemen. Kalau ketemu, yang dikembalikan adalah alamat elemennya, kalau tidak ketemu hasilnya Nil. Setelah itu program menampilkan nomor polisi, warna, dan tahun dari data yang dicari, yaitu D001.
 
 ### 3. Hapus elemen dengan nomor polisi D003 dengan procedure deleteFirst, deleteLast, dan deleteAfter.
 
@@ -821,9 +817,7 @@ int main() {
 ### Output Unguided 3 :
 
 ##### Output 1
-![Screenshot Output Unguided 3_1](https://github.com/(username github kalian)/(nama repository github kalian)/blob/main/(path folder menyimpan screenshot output)/(nama file screenshot output).png)
-
-
+![Screenshot Output Unguided 3_1](https://github.com/Sania220107/109082530026_Rista-Sania-Putri_StrukturData/blob/main/pertemuan6_modul6/Output%203_1.png?raw=true)
 
 Di soal ini ditambah tiga prosedur hapus, yaitu deleteFirst, deleteLast, dan deleteAfter. Data yang mau dihapus dicari dulu pakai findElm, lalu cara hapusnya tergantung posisinya. Kalau di awal pakai deleteFirst, kalau di akhir pakai deleteLast, dan kalau di tengah pakai deleteAfter. Untuk deleteAfter, elemen sebelumnya langsung diambil dari P->prev, jadi tidak perlu dicari lagi. Pada contoh, D003 ada di tengah sehingga dihapus pakai deleteAfter. Setelah dilepas dari list, elemennya dihapus dari memori pakai dealokasi, lalu list ditampilkan lagi dan tersisa D004 dan D001.
 
@@ -831,6 +825,6 @@ Di soal ini ditambah tiga prosedur hapus, yaitu deleteFirst, deleteLast, dan del
 Doubly linked list adalah pengembangan dari singly linked list yang setiap elemennya memiliki pointer prev dan next, sehingga list dapat ditelusuri maju maupun mundur. Operasi insert dan delete di awal, akhir, maupun tengah list dapat dilakukan dengan mengatur ulang pointer first, last, prev, dan next, dan perlu diperhatikan kasus khusus seperti list kosong atau list dengan satu elemen. Keberadaan pointer prev juga mempermudah operasi seperti deleteAfter, karena elemen sebelumnya dapat langsung diakses tanpa pencarian ulang. Melalui praktikum ini, konsep ADT doubly linked list berhasil diimplementasikan dalam bahasa C++ menggunakan pointer.
 
 ## Referensi
-[1] Triase. (2020). Diktat Edisi Revisi : STRUKTUR DATA. Medan: UNIVERSTAS ISLAM NEGERI SUMATERA UTARA MEDAN. 
-<br>[2] Indahyati, Uce., Rahmawati Yunianita. (2020). "BUKU AJAR ALGORITMA DAN PEMROGRAMAN DALAM BAHASA C++". Sidoarjo: Umsida Press. Diakses pada 10 Maret 2024 melalui https://doi.org/10.21070/2020/978-623-6833-67-4. 
-<br>[3] Modul 6 Praktikum Struktur Data: Doubly Linked List (Bagian Pertama). Fakultas Informatika, Telkom University.
+[1] Wijoyo, A., Prayudi, L. A., Fiqih, M., Santoso, R. D., Putra, R. T. S., Arifin, T., & Farhan, A. (2024). "Penggunaan Algoritma Doubly Linked List Untuk Insertion Dan Deletion". JRIIN: Jurnal Riset Informatika dan Inovasi, 1(12), 1329–1331. Diakses pada 29 Oktober 2026 melalui https://jurnalmahasiswa.com/index.php/jriin/article/view/1282.
+<br>[2] cplusplus.com. (t.t.). "Dynamic memory". C++ Language Tutorial. Diakses pada 29 Oktober 2026 melalui https://cplusplus.com/doc/tutorial/dynamic/.
+<br>[3] Telkom University. (t.t.). Modul 6: Doubly Linked List (Bagian Pertama). Modul Praktikum Struktur Data. Fakultas Informatika.
